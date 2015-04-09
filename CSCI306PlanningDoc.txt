@@ -1,0 +1,48 @@
+﻿Planning Document
+
+Testing Strategy:
+For our testing phase, we decided that we will attempt to test all of the main functionalities and logic to the game, 
+but hold off on the GUI’s and player interfaces. By the end of the testing phase, the game should work under the covers, 
+but the player will unlikely be able to interact with the program. 
+
+The main parts that we will need to build tests for are:
+
+Projectile:
+We will need to test that the projectile actually moves when fired and correctly interacts with the different objects. 
+We will probably need tests that check the the projectile ends up in the right place after being launched with a certain 
+speed and angle, and tests to check that it correctly breaks the castle when it hits.
+
+Launcher:
+The launcher will probably take quite a bit of testing as it is the center mechanic in our game. We will need tests to 
+make sure the it launches the projectile, that it applies the correct force and angle to the projectile, and tests to 
+make sure it follows all of the rules we will set for launchers (ie. not being able to fire till the projectile lands, 
+not being able to fire more than x shots…).
+
+The different types of launchers:
+We will have multiple launchers in our game that you unlock through the levels. We will surely need to test that each 
+launcher works correctly and follows its own unique behaviour. 
+
+The castle:
+The castle is of relatively low intensity. As for the testing phase the one part of the castle that is very important to 
+test is that it interacts correctly with projectiles, and gets destroyed as it is hit.
+
+Main class:
+We will need a main or game class to handle all of our objects and tie it all together. This will probably be more 
+influential in the development stage, but we may decide to test some of the basic functionality of the main class.
+
+Save states:
+This will also probably be a class we will worry about more when we have a GUI and can visually see if progress was saved, 
+but we will keep it in mind through the testing process. 
+
+
+Development Strategy:
+For our development portion we plan to have most of the logic finished, and move on to the GUI and player interaction. 
+We will need to put all of the different parts we created in the testing portion together and display it to the player. 
+We will need to create a visually appealing main menu with options to play the main game, change some basic settings, 
+and play the two player mode. We will then need to make the game screen. It will have quite a few side bars with 
+different information on them, telling you your shots left, your score, and give you some options such as quit. The 
+most important part that will probably be a large portion of our work is making sure the logic is represented correctly 
+on our game screen. We will need to make sure that what is shown to the player is what should actually be happening 
+as to our programing. After this we will need to add any final touches until it feels like a full fledged finished game. 
+We will probably reserve part 1 for the testing phase, and part 2 for the development stage, though the exact plan is 
+subject to change until we get a better feel for the time requirements of each part.
