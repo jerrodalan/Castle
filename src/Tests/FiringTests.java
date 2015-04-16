@@ -1,6 +1,7 @@
 package Tests;
 
 import static org.junit.Assert.*;
+import hittables.Projectile;
 import launchers.Cannon;
 import launchers.Catapult;
 import launchers.Launcher;
@@ -12,17 +13,17 @@ public class FiringTests {
 
 	@Test
 	public void powerChange() { // Stays within limited range
-		Launcher launcher = new Catapult();
+		Launcher launcher = new Catapult(0, 0);
 		launcher.setPower(launcher.getLowpower()-5);
 		assertEquals(launcher.getLowpower(), launcher.getPower());
 		launcher.setPower(launcher.getHighpower()+5);
 		assertEquals(launcher.getHighpower(), launcher.getPower());
-		launcher = new Trebuchet();
+		launcher = new Trebuchet(0, 0);
 		launcher.setPower(launcher.getLowpower()-5);
 		assertEquals(launcher.getLowpower(), launcher.getPower());
 		launcher.setPower(launcher.getHighpower()+5);
 		assertEquals(launcher.getHighpower(), launcher.getPower());
-		launcher = new Cannon();
+		launcher = new Cannon(0, 0);
 		launcher.setPower(launcher.getLowpower()-5);
 		assertEquals(launcher.getLowpower(), launcher.getPower());
 		launcher.setPower(launcher.getHighpower()+5);
@@ -31,7 +32,7 @@ public class FiringTests {
 	
 	@Test
 	public void angleChange() { // stay within 0 and 90
-		Launcher launcher = new Catapult();
+		Launcher launcher = new Catapult(0, 0);
 		launcher.setAngle(-5);
 		assertEquals(0, launcher.getAngle());
 		launcher.setAngle(95);
@@ -39,5 +40,33 @@ public class FiringTests {
 	}
 	
 	
+	@Test
+	public void projectileMovement() {
+		Projectile fire = new Projectile(0, 0, 20*Math.cos(Math.PI/2.0), 20*Math.sin(Math.PI/2.0));
+		//delay a bunch somehow
+		assertEquals(500, fire.getX(), 0.001);
+		
+		fire = new Projectile(0, 0, 35*Math.cos(Math.PI/6.0), 35*Math.sin(Math.PI/6.0));
+		//delay a bunch somehow
+		assertEquals(1326.1014, fire.getX(), 0.001);
+		
+		fire = new Projectile(0, 0, 50*Math.cos(Math.PI/3.0), 50*Math.sin(Math.PI/3.0));
+		//delay a bunch somehow
+		assertEquals(2706.3294, fire.getX(), 0.001);
+		
+		fire = new Projectile(0, 0, 27*Math.cos(0.8), 27*Math.sin(0.8));
+		//delay a bunch somehow
+		assertEquals(91.86145, fire.getX(), 0.001);
+	}
+	
+	@Test
+	public void launcherToProjectile(){
+		Launcher cannon = new Cannon(0, 0);
+		cannon.setAngle(45);
+		cannon.setPower(40);
+		Projectile fire = cannon.shoot();
+		//delay a bunch somehow
+		assertEquals(2000, fire.getX(), 0.001);
+	}
 
 }
