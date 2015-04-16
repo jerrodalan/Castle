@@ -1,5 +1,6 @@
 package launchers;
 import hittables.Hittable;
+import hittables.Projectile;
 
 import java.util.ArrayList;
 
@@ -17,8 +18,8 @@ public abstract class Launcher implements Hittable{
 		this.highpower= highpower;
 	}
 
-	public void shoot(){
-		
+	public Projectile shoot(){
+		return null;
 	}
 	
 	abstract public void draw();
