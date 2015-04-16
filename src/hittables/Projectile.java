@@ -5,7 +5,7 @@ public class Projectile implements Hittable{
 	private double x, y, x_velocity, y_velocity;
 	private int radius = 15;
 	
-	public static double g = -4.7;
+	public static double g = -4/5;
 	private int time;
 	
 	public Projectile(double x, double y, double x_velocity, double y_velocity){
