@@ -1,7 +1,7 @@
 package Tests;
 
 import static org.junit.Assert.*;
-import launchers.*;
+import launchers.Trebuchet;
 
 import org.junit.Test;
 
