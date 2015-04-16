@@ -1,6 +1,6 @@
 package hittables;
 
-public class Projectile {
+public class Projectile implements Hittable{
 	
 	private double x, y, x_velocity, y_velocity;
 	private int radius = 15;

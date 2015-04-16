@@ -12,7 +12,7 @@ public class Game extends JFrame{
 	private ArrayList<Hittable> hittables;
 	
 	public Game(){
-		
+		hittables = new ArrayList<Hittable>();
 	}
 	
 	public boolean detectCollision(Projectile p){
@@ -29,5 +29,9 @@ public class Game extends JFrame{
 	
 	public void addHitObject(Hittable h){
 		hittables.add(h);
+	}
+	
+	public void resetHittables(){
+		hittables = new ArrayList<Hittable>();
 	}
 }
