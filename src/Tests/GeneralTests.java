@@ -28,9 +28,5 @@ public class GeneralTests {
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	public void detectCollisions(){
-		fail("Not yet implemented");
-	}
-
+	
 }

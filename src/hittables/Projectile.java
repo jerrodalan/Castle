@@ -1,5 +1,7 @@
 package hittables;
 
+import java.awt.Rectangle;
+
 public class Projectile implements Hittable{
 	
 	private double x, y, x_velocity, y_velocity;
@@ -28,5 +30,9 @@ public class Projectile implements Hittable{
 	
 	public double getY(){
 		return y;
+	}
+	
+	public Rectangle getHitBox(){
+		return new Rectangle((int)x, (int)y, radius*2, radius*2);
 	}
 }

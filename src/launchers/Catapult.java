@@ -1,9 +1,11 @@
 package launchers;
 
+import java.awt.Rectangle;
+
 public class Catapult extends Launcher {
 
-	public Catapult() {
-		super(0, 20);
+	public Catapult(int x, int y) {
+		super(0, 20, 3, new Rectangle(x, y, 50, 20));
 		
 	}
 

@@ -88,4 +88,16 @@ public class CollisionTest {
 		game.detectCollision(p);
 		Assert.assertTrue(p == null);
 	}
+	
+	@Test
+	public void CatapultCollision(){
+		game.addHitObject(new Cannon());
+	}
+	
+	@Test
+	public void notHitSelf(){
+		Projectile p = new Projectile(50,50,0,0);
+		game.addHitObject(p);
+		Assert.assertFalse(game.detectCollision(p));
+	}
 }

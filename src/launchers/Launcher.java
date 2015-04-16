@@ -1,6 +1,7 @@
 package launchers;
 import hittables.Hittable;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 
@@ -8,13 +9,17 @@ public abstract class Launcher implements Hittable{
 	
 	private int angle, power;
 	private int lowpower, highpower;
+	private int health;
+	private Rectangle location;
 
-	public Launcher(int lowpower, int highpower) {
+	public Launcher(int lowpower, int highpower, int health, Rectangle r) {
 		super();
 		this.power = lowpower;
 		this.angle = 0;
 		this.lowpower = lowpower;
 		this.highpower= highpower;
+		this.health = health;
+		this.location = r;
 	}
 
 	public void shoot(){
@@ -46,5 +51,16 @@ public abstract class Launcher implements Hittable{
 	public int getHighpower() {
 		return highpower;
 	}
+	
+	public int getHealth(){
+		return health;
+	}
 
+	public void decrementHealth(){
+		health--;
+	}
+	
+	public Rectangle getLocation(){
+		return new Rectangle(location);
+	}
 }
