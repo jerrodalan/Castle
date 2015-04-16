@@ -1,11 +1,13 @@
 package Tests;
 
 import static org.junit.Assert.*;
+import launchers.Cannon;
 import game.Game;
 import hittables.Blocks;
 import hittables.Projectile;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,7 +15,7 @@ public class CollisionTest {
 	
 	private static Game game;
 
-	@BeforeClass
+	@Before
 	public static void setUp() {
 		game = new Game();
 	}
@@ -91,7 +93,8 @@ public class CollisionTest {
 	
 	@Test
 	public void CatapultCollision(){
-		game.addHitObject(new Cannon());
+		game.addHitObject(new Cannon(0,0));
+		Assert.assertTrue(game.detectCollision(new Projectile(5,5,0,0)));
 	}
 	
 	@Test
