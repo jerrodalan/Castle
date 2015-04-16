@@ -13,17 +13,17 @@ public class FiringTests {
 
 	@Test
 	public void powerChange() { // Stays within limited range
-		Launcher launcher = new Catapult();
+		Launcher launcher = new Catapult(0, 0);
 		launcher.setPower(launcher.getLowpower()-5);
 		assertEquals(launcher.getLowpower(), launcher.getPower());
 		launcher.setPower(launcher.getHighpower()+5);
 		assertEquals(launcher.getHighpower(), launcher.getPower());
-		launcher = new Trebuchet();
+		launcher = new Trebuchet(0, 0);
 		launcher.setPower(launcher.getLowpower()-5);
 		assertEquals(launcher.getLowpower(), launcher.getPower());
 		launcher.setPower(launcher.getHighpower()+5);
 		assertEquals(launcher.getHighpower(), launcher.getPower());
-		launcher = new Cannon();
+		launcher = new Cannon(0, 0);
 		launcher.setPower(launcher.getLowpower()-5);
 		assertEquals(launcher.getLowpower(), launcher.getPower());
 		launcher.setPower(launcher.getHighpower()+5);
@@ -32,7 +32,7 @@ public class FiringTests {
 	
 	@Test
 	public void angleChange() { // stay within 0 and 90
-		Launcher launcher = new Catapult();
+		Launcher launcher = new Catapult(0, 0);
 		launcher.setAngle(-5);
 		assertEquals(0, launcher.getAngle());
 		launcher.setAngle(95);
@@ -61,7 +61,7 @@ public class FiringTests {
 	
 	@Test
 	public void launcherToProjectile(){
-		Launcher cannon = new Cannon();
+		Launcher cannon = new Cannon(0, 0);
 		cannon.setAngle(45);
 		cannon.setPower(40);
 		Projectile fire = cannon.shoot();
