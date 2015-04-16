@@ -1,12 +1,10 @@
 package Tests;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class GeneralTests {
 
-	
 	@Test
 	public void hittable() {
 		fail("Not yet implemented");
@@ -18,8 +16,9 @@ public class GeneralTests {
 	}
 	
 	@Test
-	public void powerChange() {
-		fail("Not yet implemented");
+	public void powerChange() { // Stays within limited range
+		Trebuchet trebuchet = new Trebuchet();
+		
 	}
 
 	@Test
