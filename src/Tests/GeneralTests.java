@@ -1,6 +1,8 @@
 package Tests;
 
 import static org.junit.Assert.*;
+import launchers.*;
+
 import org.junit.Test;
 
 public class GeneralTests {
@@ -10,16 +12,9 @@ public class GeneralTests {
 		fail("Not yet implemented");
 	}
 	
-	@Test
-	public void angleChange() {
-		fail("Not yet implemented");
-	}
 	
-	@Test
-	public void powerChange() { // Stays within limited range
-		Trebuchet trebuchet = new Trebuchet();
-		
-	}
+	
+	
 
 	@Test
 	public void projectilePath() {

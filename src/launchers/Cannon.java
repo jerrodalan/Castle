@@ -5,13 +5,7 @@ import java.util.ArrayList;
 public class Cannon extends Launcher{
 
 	public Cannon() {
-		super(angle, angle);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	void shoot() {
-		// TODO Auto-generated method stub
+		super(0, 50);
 		
 	}
 
