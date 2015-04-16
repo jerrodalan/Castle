@@ -6,18 +6,20 @@ import java.util.ArrayList;
 
 public abstract class Launcher implements Hittable{
 	
-	protected int angle, power;
+	private int angle, power;
 	private int lowpower, highpower;
 
 	public Launcher(int lowpower, int highpower) {
 		super();
-		this.power = 0;
+		this.power = lowpower;
 		this.angle = 0;
 		this.lowpower = lowpower;
 		this.highpower= highpower;
 	}
 
-	abstract void shoot();
+	public void shoot(){
+		
+	}
 	
 	abstract public void draw();
 	
@@ -35,6 +37,14 @@ public abstract class Launcher implements Hittable{
 	
 	public int getPower(){
 		return power;
+	}
+
+	public int getLowpower() {
+		return lowpower;
+	}
+
+	public int getHighpower() {
+		return highpower;
 	}
 
 }
