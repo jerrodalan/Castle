@@ -30,7 +30,13 @@ public abstract class Launcher implements Hittable{
 	abstract public void draw();
 	
 	public void setAngle(int angle){
-		
+		if (angle <= 0)
+			this.angle = 0;
+		else if (angle >= 90){
+			this.angle = 90;
+		}
+		else
+			this.angle = angle;
 	}
 	
 	public int getAngle(){
