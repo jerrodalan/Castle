@@ -22,6 +22,7 @@ public class Projectile implements Hittable{
 		this.y = y;
 		this.x_velocity = x_velocity;
 		this.y_velocity = y_velocity;
+		//System.out.println(x_velocity + "\t" + y_velocity);
 		time = 0;
 		timer = new ThreadTimer(5, new Runnable(){
 			public void run(){
@@ -39,6 +40,7 @@ public class Projectile implements Hittable{
 		boolean colide = Game.GAME.detectCollision(this);
 		if (y < 0 || colide){ //or we hit something
 			//setVisible(false);
+			//System.out.println("stop");
 			timer.Stop();
 		}
 	}

@@ -38,6 +38,7 @@ public class ThreadTimer extends Thread {
 	
 	public void Stop(){
 		running = false;
+		actions = -1;
 		this.interrupt();
 	}
 	
