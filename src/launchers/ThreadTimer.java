@@ -31,7 +31,8 @@ public class ThreadTimer extends Thread {
 			if (!forever){
 				actions--;
 			}
-		}	
+		}
+		running = false;
 		return;
 	}
 	

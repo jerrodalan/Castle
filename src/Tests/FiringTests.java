@@ -8,12 +8,13 @@ import launchers.Catapult;
 import launchers.Launcher;
 import launchers.Trebuchet;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class FiringTests {
 	
-	@BeforeClass
+	@Before
 	public void setupGame(){
 		Game.GAME = new Game();
 	}
@@ -49,21 +50,21 @@ public class FiringTests {
 	
 	@Test
 	public void projectileMovement() {
-		Projectile fire = new Projectile(0, 0, 20*Math.cos(Math.PI/2.0), 20*Math.sin(Math.PI/2.0));
+		Projectile fire = new Projectile(0, 0, -20*Math.cos(Math.PI/2.0), 20*Math.sin(Math.PI/2.0));
 		while (fire.timer.isRunning()) {}
-		assertEquals(500, fire.getX(), 0.001);
+		assertEquals(-500, fire.getX(), 0.001);
 		
-		fire = new Projectile(0, 0, 35*Math.cos(Math.PI/6.0), 35*Math.sin(Math.PI/6.0));
+		fire = new Projectile(0, 0, -5*Math.cos(Math.PI/6.0), 35*Math.sin(Math.PI/6.0));
 		while (fire.timer.isRunning()) {}
-		assertEquals(1326.1014, fire.getX(), 0.001);
+		assertEquals(-1326.1014, fire.getX(), 0.001);
 		
-		fire = new Projectile(0, 0, 50*Math.cos(Math.PI/3.0), 50*Math.sin(Math.PI/3.0));
+		fire = new Projectile(0, 0, -50*Math.cos(Math.PI/3.0), 50*Math.sin(Math.PI/3.0));
 		while (fire.timer.isRunning()) {}
-		assertEquals(2706.3294, fire.getX(), 0.001);
+		assertEquals(-2706.3294, fire.getX(), 0.001);
 		
-		fire = new Projectile(0, 0, 27*Math.cos(0.8), 27*Math.sin(0.8));
+		fire = new Projectile(0, 0, -27*Math.cos(0.8), 27*Math.sin(0.8));
 		while (fire.timer.isRunning()) {}
-		assertEquals(91.86145, fire.getX(), 0.001);
+		assertEquals(-91.86145, fire.getX(), 0.001);
 	}
 	
 	@Test
@@ -73,7 +74,7 @@ public class FiringTests {
 		cannon.setPower(40);
 		Projectile fire = cannon.shoot();
 		while (fire.timer.isRunning()) {}
-		assertEquals(2000, fire.getX(), 0.001);
+		assertEquals(-2000, fire.getX(), 0.001);
 	}
 
 }

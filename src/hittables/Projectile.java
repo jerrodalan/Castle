@@ -11,9 +11,9 @@ public class Projectile implements Hittable{
 	private double x, y, x_velocity, y_velocity;
 	private int radius = 15;
 	
-	public static double g = -4/5;
+	public static double g = -4/5.0;
 	private double time;
-	private double timeStep = 0.5;
+	private double timeStep = 0.1;
 	
 	public ThreadTimer timer;
 	
@@ -23,7 +23,7 @@ public class Projectile implements Hittable{
 		this.x_velocity = x_velocity;
 		this.y_velocity = y_velocity;
 		time = 0;
-		timer = new ThreadTimer((int)(timeStep*1000), new Runnable(){
+		timer = new ThreadTimer(5, new Runnable(){
 			public void run(){
 				advance();
 			}
@@ -35,6 +35,7 @@ public class Projectile implements Hittable{
 		x += x_velocity*timeStep;
 		y_velocity += g*timeStep;
 		time += timeStep;
+		//System.out.println(x + "\t" + y);
 		boolean colide = Game.GAME.detectCollision(this);
 		if (y < 0 || colide){ //or we hit something
 			//setVisible(false);
