@@ -24,7 +24,9 @@ public abstract class Launcher implements Hittable{
 	}
 
 	public Projectile shoot(){
-		return null;
+		double x_vel = -power*Math.cos(Math.toRadians(angle));
+		double y_vel = power*Math.sin(Math.toRadians(angle));
+		return new Projectile(location.getX(), location.getY(), x_vel, y_vel);
 	}
 	
 	abstract public void draw();
@@ -38,7 +40,13 @@ public abstract class Launcher implements Hittable{
 	}
 	
 	public void setPower(int power){
-		
+		if (power < lowpower){
+			power = lowpower;
+		}
+		if (power > highpower){
+			power = highpower;
+		}
+		this.power = power;
 	}
 	
 	public int getPower(){
