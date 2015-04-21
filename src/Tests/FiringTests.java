@@ -1,15 +1,22 @@
 package Tests;
 
 import static org.junit.Assert.*;
+import game.Game;
 import hittables.Projectile;
 import launchers.Cannon;
 import launchers.Catapult;
 import launchers.Launcher;
 import launchers.Trebuchet;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class FiringTests {
+	
+	@BeforeClass
+	public void setupGame(){
+		Game.GAME = new Game();
+	}
 
 	@Test
 	public void powerChange() { // Stays within limited range
@@ -43,19 +50,19 @@ public class FiringTests {
 	@Test
 	public void projectileMovement() {
 		Projectile fire = new Projectile(0, 0, 20*Math.cos(Math.PI/2.0), 20*Math.sin(Math.PI/2.0));
-		//delay a bunch somehow
+		while (fire.timer.isRunning()) {}
 		assertEquals(500, fire.getX(), 0.001);
 		
 		fire = new Projectile(0, 0, 35*Math.cos(Math.PI/6.0), 35*Math.sin(Math.PI/6.0));
-		//delay a bunch somehow
+		while (fire.timer.isRunning()) {}
 		assertEquals(1326.1014, fire.getX(), 0.001);
 		
 		fire = new Projectile(0, 0, 50*Math.cos(Math.PI/3.0), 50*Math.sin(Math.PI/3.0));
-		//delay a bunch somehow
+		while (fire.timer.isRunning()) {}
 		assertEquals(2706.3294, fire.getX(), 0.001);
 		
 		fire = new Projectile(0, 0, 27*Math.cos(0.8), 27*Math.sin(0.8));
-		//delay a bunch somehow
+		while (fire.timer.isRunning()) {}
 		assertEquals(91.86145, fire.getX(), 0.001);
 	}
 	
@@ -65,7 +72,7 @@ public class FiringTests {
 		cannon.setAngle(45);
 		cannon.setPower(40);
 		Projectile fire = cannon.shoot();
-		//delay a bunch somehow
+		while (fire.timer.isRunning()) {}
 		assertEquals(2000, fire.getX(), 0.001);
 	}
 

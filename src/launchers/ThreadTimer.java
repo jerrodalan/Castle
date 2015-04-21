@@ -6,6 +6,7 @@ public class ThreadTimer extends Thread {
 	private Runnable action;
 	private int actions;
 	private boolean forever = false;
+	private boolean running = false;
 	public static int FOREVER = -1;
 	
 	public ThreadTimer(int interval, Runnable run, int times){
@@ -13,6 +14,7 @@ public class ThreadTimer extends Thread {
 		action = run;
 		actions = times;
 		forever = (times == FOREVER);
+		running = true;
 		this.start();
 	}
 	
@@ -22,6 +24,7 @@ public class ThreadTimer extends Thread {
 				Thread.sleep(delay);
 			} 
 			catch (Exception e) {
+				running = false;
 				return;
 			}
 			action.run();
@@ -33,7 +36,12 @@ public class ThreadTimer extends Thread {
 	}
 	
 	public void Stop(){
+		running = false;
 		this.interrupt();
+	}
+	
+	public boolean isRunning(){
+		return running;
 	}
 	
 }
