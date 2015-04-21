@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 
 public class Game extends JFrame{
 	
+	public static Game GAME;
+	
 	private ArrayList<Hittable> hittables;
 	
 	public Game(){
@@ -27,7 +29,7 @@ public class Game extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		
+		GAME = new Game();
 	}
 	
 	
