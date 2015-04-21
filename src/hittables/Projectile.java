@@ -35,6 +35,6 @@ public class Projectile implements Hittable{
 	}
 	
 	public Rectangle getHitBox(){
-		return new Rectangle((int)x, (int)y, radius*2, radius*2);
+		return new Rectangle((int)x - radius, (int)y - radius, radius*2, radius*2);
 	}
 }

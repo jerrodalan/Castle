@@ -1,5 +1,7 @@
 package hittables;
 
+import java.awt.Rectangle;
+
 public class Blocks implements Hittable{
 	
 	private int x, y, height, width;
@@ -13,6 +15,11 @@ public class Blocks implements Hittable{
 	
 	public void draw(){
 		
+	}
+
+	@Override
+	public Rectangle getHitBox() {
+		return new Rectangle(x, y, width, height);
 	}
 
 }
