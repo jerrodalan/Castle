@@ -31,12 +31,14 @@ public class ThreadTimer extends Thread {
 			if (!forever){
 				actions--;
 			}
-		}	
+		}
+		running = false;
 		return;
 	}
 	
 	public void Stop(){
 		running = false;
+		actions = -1;
 		this.interrupt();
 	}
 	
