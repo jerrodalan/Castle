@@ -18,6 +18,13 @@ public class Game extends JFrame{
 	}
 	
 	public boolean detectCollision(Projectile p){
+		for(Hittable h: hittables){
+			if(h != p){
+				if(p.getHitBox().intersects(h.getHitBox()))
+					//p = null;
+					return true;
+			}
+		}
 		return false;
 	}
 	

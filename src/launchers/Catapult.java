@@ -15,4 +15,9 @@ public class Catapult extends Launcher {
 
 	}
 
+	@Override
+	public Rectangle getHitBox() {
+		return super.getLocation();
+	}
+
 }

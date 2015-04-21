@@ -16,4 +16,9 @@ public class Trebuchet extends Launcher{
 		
 	}
 
+	@Override
+	public Rectangle getHitBox() {
+		return super.getLocation();
+	}
+
 }

@@ -16,6 +16,11 @@ public class Cannon extends Launcher{
 		
 	}
 
+	@Override
+	public Rectangle getHitBox() {
+		return super.getLocation();
+	}
+
 	
 	
 }
