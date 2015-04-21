@@ -66,6 +66,8 @@ public class FiringTests {
 		assertEquals(91.86145, fire.getX(), 0.001);
 	}
 	
+	//Write a test that checks if the projectile tops on collision other than ground
+	
 	@Test
 	public void launcherToProjectile(){
 		Launcher cannon = new Cannon(0, 0);
