@@ -17,13 +17,14 @@ public class Game extends JFrame{
 		hittables = new ArrayList<Hittable>();
 	}
 	
-	public boolean detectCollision(Projectile p){
+	public boolean detectCollision(Hittable p){
 		for(Hittable h: hittables){
 			if(h != p){
-				if(p.getHitBox().intersects(h.getHitBox()))
-					//p = null;
+				if(p.getHitBox().intersects(h.getHitBox())){
+					this.removeHittable(p);
 					return true;
 			}
+		}
 		}
 		return false;
 	}
@@ -42,5 +43,16 @@ public class Game extends JFrame{
 	
 	public void resetHittables(){
 		hittables = new ArrayList<Hittable>();
+	}
+	
+	public void removeHittable(Hittable h){
+		hittables.remove(h);
+	}
+	
+	public boolean containsHittable(Hittable p){
+		if(hittables.contains(p)){
+			return true;
+		}
+		return false;
 	}
 }

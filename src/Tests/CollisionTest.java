@@ -82,13 +82,13 @@ public class CollisionTest {
 		game.addHitObject(new Blocks(50,50,0,0));
 		Projectile p = new Projectile(49,49,0,0); 
 		game.detectCollision(p);
-		Assert.assertTrue(p == null);
+		Assert.assertFalse(game.containsHittable(p));
 		
 		game.resetHittables();
 		game.addHitObject(new Projectile(50,50,0,0));
 		p = new Projectile(49,49,0,0); 
 		game.detectCollision(p);
-		Assert.assertTrue(p == null);
+		Assert.assertFalse(game.containsHittable(p));
 	}
 	
 	@Test
