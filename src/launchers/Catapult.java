@@ -1,5 +1,6 @@
 package launchers;
 
+import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Catapult extends Launcher {
@@ -10,14 +11,10 @@ public class Catapult extends Launcher {
 	}
 
 	@Override
-	public void draw() {
+	public void paintComponent(Graphics g) {
+		paintSuper(g);
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public Rectangle getHitBox() {
-		return super.getLocation();
 	}
 
 }

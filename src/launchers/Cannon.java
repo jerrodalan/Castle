@@ -1,4 +1,5 @@
 package launchers;
+import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
@@ -11,16 +12,10 @@ public class Cannon extends Launcher{
 	}
 
 	@Override
-	public void draw() {
+	public void paintComponent(Graphics g) {
+		paintSuper(g);
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public Rectangle getHitBox() {
-		return super.getLocation();
-	}
-
-	
+	}	
 	
 }

@@ -2,18 +2,24 @@ package launchers;
 import hittables.Hittable;
 import hittables.Projectile;
 
+import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
-public abstract class Launcher implements Hittable{
+
+public abstract class Launcher extends JPanel implements Hittable{
 	
 	private int angle, power;
 	private int lowpower, highpower;
 	private int health;
 	private Rectangle location;
+	
+	protected ImageIcon picture;
 
-	public Launcher(int lowpower, int highpower, int health, Rectangle r) {
+	public Launcher(int lowpower, int highpower, int health, Rectangle r, ImageIcon picture) {
 		super();
 		this.power = lowpower;
 		this.angle = 0;
@@ -21,6 +27,7 @@ public abstract class Launcher implements Hittable{
 		this.highpower= highpower;
 		this.health = health;
 		this.location = r;
+		this.picture = picture;
 	}
 
 	public Projectile shoot(){
@@ -29,7 +36,12 @@ public abstract class Launcher implements Hittable{
 		return new Projectile(location.getX(), location.getY(), x_vel, y_vel);
 	}
 	
-	abstract public void draw();
+	@Override
+	abstract public void paintComponent(Graphics g);
+	
+	protected final void paintSuper(Graphics g){
+		super.paintComponent(g);
+	}
 	
 	public void setAngle(int angle){
 		if (angle <= 0)
@@ -75,7 +87,7 @@ public abstract class Launcher implements Hittable{
 		health--;
 	}
 	
-	public Rectangle getLocation(){
+	public final Rectangle getHitBox(){
 		return new Rectangle(location);
 	}
 }

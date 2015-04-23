@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 
-public class Game extends JFrame{
+public class Game extends JFrame {
 	
 	public static Game GAME;
 	
