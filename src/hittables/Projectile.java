@@ -68,4 +68,12 @@ public class Projectile extends JPanel implements Hittable{
 	public Rectangle getHitBox(){
 		return new Rectangle((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
 	}
+
+	@Override
+	public void hit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

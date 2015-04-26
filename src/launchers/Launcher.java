@@ -16,6 +16,7 @@ public abstract class Launcher extends JPanel implements Hittable{
 	private int lowpower, highpower;
 	private int health;
 	private Rectangle location;
+	private boolean isHit = false;
 	
 	protected ImageIcon picture;
 
@@ -28,6 +29,7 @@ public abstract class Launcher extends JPanel implements Hittable{
 		this.health = health;
 		this.location = r;
 		this.picture = picture;
+		super.setBounds(r);
 	}
 
 	public Projectile shoot(){
@@ -37,7 +39,10 @@ public abstract class Launcher extends JPanel implements Hittable{
 	}
 	
 	@Override
-	abstract public void paintComponent(Graphics g);
+	public void paintComponent(Graphics g){
+		paintSuper(g);
+		//g.drawImage(picture, location.getX(), location.getY(), null);
+	}
 	
 	protected final void paintSuper(Graphics g){
 		super.paintComponent(g);
@@ -87,6 +92,10 @@ public abstract class Launcher extends JPanel implements Hittable{
 		health--;
 	}
 	
+	@Override
+	public void hit() {
+		isHit = true;		
+	}	
 	public final Rectangle getHitBox(){
 		return new Rectangle(location);
 	}

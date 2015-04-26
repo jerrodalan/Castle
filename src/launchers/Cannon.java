@@ -18,6 +18,8 @@ public class Cannon extends Launcher{
 		paintSuper(g);
 		// TODO Auto-generated method stub
 		
-	}	
+	}
+
+	
 	
 }
