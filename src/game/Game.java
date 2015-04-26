@@ -15,15 +15,16 @@ public class Game extends JFrame {
 	private JPanel contentPane;
 	
 	private ArrayList<Hittable> hittables;
-	private Campaign campaign;
+	public Campaign campaign; // made public for testing, if this stays in submitted project.... sorry
 	private Menu menu;
+	private ControlGui controlGui;
 	
 	public Game(){		
 		hittables = new ArrayList<Hittable>();
 		
 		this.setTitle("Storm the Castle");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setBounds(100, 100, 900, 600);
+		this.setBounds(100, 100, 900, 678);
 		this.setResizable(false);
 	}
 	
@@ -34,10 +35,16 @@ public class Game extends JFrame {
 		
 		campaign = new Campaign();
 		campaign.setVisible(false);
-		
+		/*controlGui = new ControlGui();
+		//controlGui.setLocation(0,600);
+		controlGui.setVisible(true);
+		add(controlGui, BorderLayout.SOUTH);*/
+		//controls = new ControlGui();
 		menu = new Menu();
 		contentPane.add(menu, BorderLayout.CENTER);
+		//this.add(controls, BorderLayout.SOUTH);
 		menu.setVisible(true);
+		
 	}
 	
 	public void showCampaign(){

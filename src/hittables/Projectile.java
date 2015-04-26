@@ -2,6 +2,7 @@ package hittables;
 
 import game.Game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -49,12 +50,22 @@ public class Projectile extends JPanel implements Hittable{
 			//System.out.println("stop");
 			timer.Stop();
 		}
+		repaint();
+		System.out.println("Advancing");
 	}
 	
-	@Override
+	/*@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		g.setColor(Color.BLACK);
+		g.fillOval((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
+		//g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
 		//TODO draw function
+	}*/
+	
+	public void draw(Graphics g){
+		g.setColor(Color.BLACK);
+		g.fillOval((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
 	}
 	
 	public double getXPosition(){

@@ -17,6 +17,7 @@ public abstract class Launcher extends JPanel implements Hittable{
 	private int health;
 	private Rectangle location;
 	private boolean isHit = false;
+	private Projectile rock;
 	
 	protected ImageIcon picture;
 
@@ -30,24 +31,25 @@ public abstract class Launcher extends JPanel implements Hittable{
 		this.location = r;
 		this.picture = picture;
 		super.setBounds(r);
+		this.setOpaque(false);
 	}
 
 	public Projectile shoot(){
 		double x_vel = -power*Math.cos(Math.toRadians(angle));
 		double y_vel = power*Math.sin(Math.toRadians(angle));
-		return new Projectile(location.getX(), location.getY(), x_vel, y_vel);
+		rock = new Projectile(location.getX(), location.getY(), x_vel, y_vel);
+		return rock;
 	}
 	
 	@Override
 	public void paintComponent(Graphics g){
-		paintSuper(g);
-		//g.drawImage(picture, location.getX(), location.getY(), null);
-	}
-	
-	protected final void paintSuper(Graphics g){
 		super.paintComponent(g);
+		g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
+		if(rock != null)
+			rock.draw(g);
 	}
 	
+
 	public void setAngle(int angle){
 		if (angle <= 0)
 			this.angle = 0;

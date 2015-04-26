@@ -12,11 +12,6 @@ public class Catapult extends Launcher {
 		
 	}
 
-	@Override
-	public void paintComponent(Graphics g) {
-		paintSuper(g);
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }
