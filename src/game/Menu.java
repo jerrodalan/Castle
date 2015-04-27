@@ -54,7 +54,6 @@ public class Menu extends ImagePanel {
 			if (e.getSource() == campaignButton){
 				hideMenu();
 				Game.GAME.showCampaign();
-				Game.GAME.campaign.testShoot(); // just for testing, if this also makes it into submission.... suck it
 			}
 			else if (e.getSource() == challengeButton){
 				hideMenu();

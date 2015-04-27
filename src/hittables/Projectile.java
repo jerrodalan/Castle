@@ -14,12 +14,10 @@ import launchers.ThreadTimer;
 
 public class Projectile extends ImagePanel implements Hittable{
 	
-	private ImageIcon picture;
-	
 	private double x_pos, y_pos, x_velocity, y_velocity;
 	private int radius = 15;
 	
-	public static double g = -4/5.0;
+	public static double g = 4/5.0;
 	private double time;
 	private double timeStep = 0.1;
 	
@@ -31,7 +29,7 @@ public class Projectile extends ImagePanel implements Hittable{
 		this.y_pos = y;
 		setBounds((int)x, (int)y, 80, 80);
 		this.x_velocity = x_velocity;
-		this.y_velocity = y_velocity;
+		this.y_velocity = -y_velocity;
 		//System.out.println(x_velocity + "\t" + y_velocity);
 		time = 0;
 		if (Math.abs(x_velocity) < 0.001 && Math.abs(y_velocity) < 0.001){
@@ -65,7 +63,7 @@ public class Projectile extends ImagePanel implements Hittable{
 		super.paintComponent(g);
 		//g.setColor(Color.BLACK);
 		//g.fillOval((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
-		g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
+		//g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
 		//TODO draw function
 	}
 	

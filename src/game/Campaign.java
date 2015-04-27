@@ -36,15 +36,11 @@ public class Campaign extends ImagePanel {
 		this.add(trebuchet);
 		trebuchet.setAngle(45);
 		trebuchet.setPower(30);
-		this.add(trebuchet.shoot());
+		//this.add(trebuchet.shoot());
 		//Projectile p = new Projectile(500, 500, x_velocity, y_velocity)
 		
 		
 		
-	}
-	
-	public void testShoot(){
-		this.add(trebuchet.shoot());
 	}
 	
 	@Override
