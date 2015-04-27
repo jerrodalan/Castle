@@ -56,27 +56,29 @@ public class FiringTests {
 		while (fire.timer.isRunning()) {
 			Thread.sleep(1);
 		}
-		assertEquals(-500, fire.getX(), 15);
+		assertEquals(-500, fire.getXPosition(), 15);
 		
 		Projectile fire2 = new Projectile(0, 0, -35*Math.cos(Math.PI/6.0), 35*Math.sin(Math.PI/6.0));
 		while (fire2.timer.isRunning()) {
 			Thread.sleep(1);
 		}
-		System.out.println("moving on");
-		assertEquals(-1326.1014, fire2.getX(), 15);
+
+		assertEquals(-1326.1014, fire2.getXPosition(), 15);
 		
 		fire = new Projectile(0, 0, -50*Math.cos(Math.PI/3.0), 50*Math.sin(Math.PI/3.0));
 		while (fire.timer.isRunning()) {
 			Thread.sleep(1);
 		}
-		assertEquals(-2706.3294, fire.getX(), 15);
+		assertEquals(-2706.3294, fire.getXPosition(), 15);
 		
 		fire = new Projectile(0, 0, -27*Math.cos(0.8), 27*Math.sin(0.8));
 		while (fire.timer.isRunning()) {
 			Thread.sleep(1);
 		}
-		assertEquals(-918.6145, fire.getX(), 15);
+		assertEquals(-918.6145, fire.getXPosition(), 15);
 	}
+	
+	//Write a test that checks if the projectile tops on collision other than ground
 	
 	@Test
 	public void launcherToProjectile() throws InterruptedException{
@@ -87,7 +89,7 @@ public class FiringTests {
 		while (fire.timer.isRunning()) {
 			Thread.sleep(1);
 		}
-		assertEquals(-2000, fire.getX(), 15);
+		assertEquals(-2000, fire.getXPosition(), 15);
 	}
 
 }
