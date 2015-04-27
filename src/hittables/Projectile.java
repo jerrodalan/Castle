@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 import launchers.ThreadTimer;
 
-public class Projectile extends JPanel implements Hittable{
+public class Projectile extends ImagePanel implements Hittable{
 	
 	private ImageIcon picture;
 	
@@ -25,8 +25,10 @@ public class Projectile extends JPanel implements Hittable{
 	public ThreadTimer timer;
 	
 	public Projectile(double x, double y, double x_velocity, double y_velocity){
+		super("lib/Projectile.png");
 		this.x_pos = x;
 		this.y_pos = y;
+		setBounds((int)x, (int)y, 80, 80);
 		this.x_velocity = x_velocity;
 		this.y_velocity = y_velocity;
 		//System.out.println(x_velocity + "\t" + y_velocity);
@@ -53,23 +55,23 @@ public class Projectile extends JPanel implements Hittable{
 			//System.out.println("stop");
 			timer.Stop();
 		}
+		setLocation((int)x_pos, (int)y_pos);
 		repaint();
-		System.out.println("Advancing");
 	}
 	
-	/*@Override
+	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.setColor(Color.BLACK);
-		g.fillOval((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
-		//g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
+		//g.setColor(Color.BLACK);
+		//g.fillOval((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
+		g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
 		//TODO draw function
-	}*/
-	
-	public void draw(Graphics g){
-		g.setColor(Color.BLACK);
-		g.fillOval((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
 	}
+	
+//	public void draw(Graphics g){
+//		g.setColor(Color.BLACK);
+//		g.fillOval((int)x_pos - radius, (int)y_pos - radius, radius*2, radius*2);
+//	}
 	
 	public double getXPosition(){
 		return x_pos;

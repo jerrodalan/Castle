@@ -38,6 +38,12 @@ public abstract class Launcher extends JPanel implements Hittable{
 		double x_vel = -power*Math.cos(Math.toRadians(angle));
 		double y_vel = power*Math.sin(Math.toRadians(angle));
 		rock = new Projectile(location.getX(), location.getY(), x_vel, y_vel);
+		try {
+			this.getParent().add(rock);
+		} catch (NullPointerException e){
+			System.err.println("The launcher is not added to a panel");
+			e.printStackTrace();
+		}
 		return rock;
 	}
 	
@@ -45,8 +51,8 @@ public abstract class Launcher extends JPanel implements Hittable{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
-		if(rock != null)
-			rock.draw(g);
+//		if(rock != null)
+//			rock.draw(g);
 	}
 	
 
