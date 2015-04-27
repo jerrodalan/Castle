@@ -39,5 +39,20 @@ public class ControlGui extends JPanel {
 		add(powerPanel);
 		add(viewButton);
 		add(shootButton);
+		ButtonListener buttons = new ButtonListener();
+		shootButton.addActionListener(buttons);
+		viewButton.addActionListener(buttons);
+		
 	}
+	
+	private class ButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() == viewButton){
+				System.out.println("Angle: " + angle.getText() + " Power: " + power.getText());
+			}
+			else if (e.getSource() == shootButton)
+				System.out.println("Shoot");
+		}
+	}
+
 }
