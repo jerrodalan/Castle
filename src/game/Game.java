@@ -33,7 +33,7 @@ public class Game extends JFrame {
 		this.setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout());
 		
-		campaign = new Campaign();
+		campaign = new Campaign(EnumLauncher.TREBUCHET);
 		campaign.setVisible(false);
 		/*controlGui = new ControlGui();
 		//controlGui.setLocation(0,600);
@@ -58,6 +58,9 @@ public class Game extends JFrame {
 			if(h != p){
 				if(p.getHitBox().intersects(h.getHitBox())){
 					h.hit();
+					if(campaign.castleDead()){
+						win();
+					}
 					return true;
 				}
 			}
@@ -69,6 +72,10 @@ public class Game extends JFrame {
 		GAME = new Game();
 		GAME.createPanels();
 		GAME.setVisible(true);
+	}
+	
+	private void win(){
+		System.out.println("YOU WIN!!!");
 	}
 	
 	

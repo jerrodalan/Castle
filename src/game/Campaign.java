@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import launchers.Cannon;
+import launchers.Catapult;
 import launchers.Launcher;
 import launchers.Trebuchet;
 
@@ -20,14 +22,35 @@ public class Campaign extends ImagePanel {
 	private Launcher launcher;
 	private ControlGui controlGui;
 	
-	public Campaign(){
+	public Campaign(EnumLauncher selection){
 		super("lib/hills.png");
 		setLayout(null);
+		
+		switch(selection){
+		case TREBUCHET: 
+			launcher = new Trebuchet(730, 450);
+			this.add(launcher);
+			launcher.setAngle(45);
+			launcher.setPower(30);
+			break;
+		case CATAPULT:
+			launcher = new Catapult(730, 450);
+			this.add(launcher);
+			launcher.setAngle(45);
+			launcher.setPower(30);
+			break;
+		case CANNON:
+			launcher = new Cannon(730, 450);
+			this.add(launcher);
+			launcher.setAngle(45);
+			launcher.setPower(30);
+			break;
+		}
 	
-		launcher = new Trebuchet(730, 450);
-		this.add(launcher);
-		launcher.setAngle(45);
-		launcher.setPower(30);
+//		launcher = new Trebuchet(730, 450);
+//		this.add(launcher);
+//		launcher.setAngle(45);
+//		launcher.setPower(30);
 		//this.add(trebuchet.shoot());
 		//Projectile p = new Projectile(500, 500, x_velocity, y_velocity)
 		
@@ -48,6 +71,10 @@ public class Campaign extends ImagePanel {
 	
 	public Launcher getLauncher(){
 		return launcher;
+	}
+	
+	public boolean castleDead(){
+		return castle.isDestroyed();
 	}
 	
 	@Override
