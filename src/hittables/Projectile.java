@@ -1,6 +1,7 @@
 package hittables;
 
 import game.Game;
+import game.ImagePanel;
 
 import java.awt.Color;
 import java.awt.Graphics;
