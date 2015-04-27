@@ -11,18 +11,26 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import launchers.Launcher;
 import launchers.Trebuchet;
 
 public class Campaign extends ImagePanel {
 
 	private Castle castle;
-	private Trebuchet trebuchet;
+	private Launcher launcher;
 	private ControlGui controlGui;
 	
 	public Campaign(){
 		super("lib/hills.png");
 		setLayout(null);
 	
+		launcher = new Trebuchet(730, 450);
+		this.add(launcher);
+		launcher.setAngle(45);
+		launcher.setPower(30);
+		//this.add(trebuchet.shoot());
+		//Projectile p = new Projectile(500, 500, x_velocity, y_velocity)
+		
 		controlGui = new ControlGui();
 		controlGui.setLocation(0,600);
 		controlGui.setVisible(true);
@@ -32,15 +40,14 @@ public class Campaign extends ImagePanel {
 		this.add(castle);
 		castle.setLocation(0, 0);
 		
-		trebuchet = new Trebuchet(730, 450);
-		this.add(trebuchet);
-		trebuchet.setAngle(45);
-		trebuchet.setPower(30);
-		//this.add(trebuchet.shoot());
-		//Projectile p = new Projectile(500, 500, x_velocity, y_velocity)
+
+		controlGui.angle.setText(launcher.getAngle() + "");
+		controlGui.power.setText(launcher.getPower() + "");
 		
-		
-		
+	}
+	
+	public Launcher getLauncher(){
+		return launcher;
 	}
 	
 	@Override
