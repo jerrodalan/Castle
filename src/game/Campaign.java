@@ -24,7 +24,7 @@ public class Campaign extends ImagePanel {
 		super("lib/hills.png");
 		setLayout(null);
 	
-		launcher = new Trebuchet(730, 450);
+		launcher = new Trebuchet(730, 490);
 		this.add(launcher);
 		launcher.setAngle(45);
 		launcher.setPower(30);
@@ -43,6 +43,7 @@ public class Campaign extends ImagePanel {
 
 		controlGui.angle.setText(launcher.getAngle() + "");
 		controlGui.power.setText(launcher.getPower() + "");
+		controlGui.power.setEditable(false);
 		
 	}
 	

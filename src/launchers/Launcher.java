@@ -18,10 +18,11 @@ public abstract class Launcher extends JPanel implements Hittable{
 	private Rectangle location;
 	private boolean isHit = false;
 	private Projectile rock;
+	private int xOffset, yOffset;
 	
 	protected ImageIcon picture;
 
-	public Launcher(int lowpower, int highpower, int health, Rectangle r, ImageIcon picture) {
+	public Launcher(int lowpower, int highpower, int health, Rectangle r, ImageIcon picture, int xOff, int yOff) {
 		super();
 		this.power = lowpower;
 		this.angle = 0;
@@ -29,6 +30,8 @@ public abstract class Launcher extends JPanel implements Hittable{
 		this.highpower= highpower;
 		this.health = health;
 		this.location = r;
+		xOffset = xOff;
+		yOffset = yOff;
 		this.picture = picture;
 		super.setBounds(r);
 		this.setOpaque(false);
@@ -37,7 +40,7 @@ public abstract class Launcher extends JPanel implements Hittable{
 	public Projectile shoot(){
 		double x_vel = -power*Math.cos(Math.toRadians(angle));
 		double y_vel = power*Math.sin(Math.toRadians(angle));
-		rock = new Projectile(location.getX(), location.getY(), x_vel, y_vel);
+		rock = new Projectile(location.getX()+xOffset, location.getY()+yOffset, x_vel, y_vel);
 		try {
 			this.getParent().add(rock);
 		} catch (NullPointerException e){

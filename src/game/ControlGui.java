@@ -34,7 +34,7 @@ public class ControlGui extends JPanel {
 			public void focusLost(FocusEvent e){
 				try {
 					Game.GAME.campaign.getLauncher().setAngle(Integer.parseInt(angle.getText()));
-				} catch (Exception ex) { ex.printStackTrace(); }
+				} catch (NumberFormatException ex) {}
 				angle.setText(Game.GAME.campaign.getLauncher().getAngle() + "");
 			}
 		});
@@ -54,7 +54,7 @@ public class ControlGui extends JPanel {
 			public void focusLost(FocusEvent e){
 				try {
 					Game.GAME.campaign.getLauncher().setPower(Integer.parseInt(power.getText()));
-				} catch (Exception ex){ ex.printStackTrace(); }
+				} catch (NumberFormatException ex){}
 				power.setText(Game.GAME.campaign.getLauncher().getPower() + "");
 			}
 		});
