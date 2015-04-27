@@ -20,6 +20,7 @@ public class Projectile extends ImagePanel implements Hittable{
 	public static double g = 4/5.0;
 	private double time;
 	private double timeStep = 0.1;
+	private boolean isHit = false;
 	
 	public ThreadTimer timer;
 	
@@ -86,8 +87,13 @@ public class Projectile extends ImagePanel implements Hittable{
 
 	@Override
 	public void hit() {
-		// TODO Auto-generated method stub
+		isHit = true;
 		
+	}
+
+	@Override
+	public boolean isHit() {
+		return isHit;
 	}
 
 

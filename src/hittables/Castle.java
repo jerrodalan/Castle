@@ -25,6 +25,15 @@ public class Castle extends ImagePanel {
 		}
 		
 	}
+	
+	public boolean isDestroyed(){
+		for(Blocks b: structure){
+			if(!(b.isHit())){
+				return false;
+			}
+		}
+		return true;
+	}
 
 	@Override
 	public void paintComponent(Graphics g){

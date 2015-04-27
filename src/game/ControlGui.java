@@ -48,10 +48,10 @@ public class ControlGui extends JPanel {
 	private class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == viewButton){
-				System.out.println("Angle: " + angle.getText() + " Power: " + power.getText());
+				System.out.println("Angle: " + angle.getText() + " Power: " + power.getText() + "---Still needs to draw shoot line");
 			}
 			else if (e.getSource() == shootButton)
-				System.out.println("Shoot");
+				Game.GAME.campaign.getLauncher().shoot();
 		}
 	}
 

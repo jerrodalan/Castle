@@ -104,6 +104,11 @@ public abstract class Launcher extends JPanel implements Hittable{
 	public void hit() {
 		isHit = true;		
 	}	
+	
+	@Override
+	public boolean isHit(){
+		return isHit();
+	}
 	public final Rectangle getHitBox(){
 		return new Rectangle(location);
 	}

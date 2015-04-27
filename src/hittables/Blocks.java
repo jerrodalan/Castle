@@ -48,4 +48,10 @@ public class Blocks implements Hittable{
 		isHit = true;		
 	}
 
+	@Override
+	public boolean isHit() {
+		return isHit;
+	}
+
+	
 }
