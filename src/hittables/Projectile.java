@@ -24,6 +24,9 @@ public class Projectile implements Hittable{
 		this.y_velocity = y_velocity;
 		//System.out.println(x_velocity + "\t" + y_velocity);
 		time = 0;
+		if (Math.abs(x_velocity) < 0.001 && Math.abs(y_velocity) < 0.001){
+			return;
+		}
 		timer = new ThreadTimer(5, new Runnable(){
 			public void run(){
 				advance();

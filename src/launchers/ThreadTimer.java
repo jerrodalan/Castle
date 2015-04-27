@@ -22,7 +22,7 @@ public class ThreadTimer extends Thread {
 		while (actions > 0 || forever){
 			try{
 				Thread.sleep(delay);
-			} 
+			}
 			catch (Exception e) {
 				running = false;
 				return;
