@@ -33,6 +33,8 @@ public class ControlGui extends JPanel {
 		angle.addFocusListener(new FocusAdapter(){
 			public void focusLost(FocusEvent e){
 				try {
+					if(angle.getText().equals("win"))
+						//Game.GAME.campaign.getLauncher().shootToWin();
 					Game.GAME.campaign.getLauncher().setAngle(Integer.parseInt(angle.getText()));
 				} catch (NumberFormatException ex) {}
 				angle.setText(Game.GAME.campaign.getLauncher().getAngle() + "");

@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 public class Catapult extends Launcher {
 
 	public Catapult(int x, int y) {
-		super(0, 30, 3, new Rectangle(x, y, 50, 20), new ImageIcon("/lib/trebucet1.png"), 0, 0);
+		super(0, 30, 3, new Rectangle(x, y, 150, 82), new ImageIcon("/lib/Catapult_Launcher.png"), 131, 22);
 		
 	}
 

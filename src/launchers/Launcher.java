@@ -50,6 +50,12 @@ public abstract class Launcher extends JPanel implements Hittable{
 		return rock;
 	}
 	
+	public void shootToWin(){
+		for(int i = 0; i <= 90; i++){
+			
+		}
+	}
+	
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);

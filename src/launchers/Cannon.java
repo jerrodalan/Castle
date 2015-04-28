@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 public class Cannon extends Launcher{
 
 	public Cannon(int x, int y) {
-		super(0, 50, 3, new Rectangle(x, y, 50, 20), new ImageIcon("lib/trebucet1.png"), 0, 0);
+		super(0, 50, 3, new Rectangle(x, y, 150, 93), new ImageIcon("lib/Cannon_Launcher.png"), 6, 19);
 		
 	}
 

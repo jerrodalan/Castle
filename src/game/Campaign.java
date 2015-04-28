@@ -33,11 +33,11 @@ public class Campaign extends ImagePanel {
 			this.add(launcher);
 			break;
 		case CATAPULT:
-			launcher = new Catapult(730, 450);
+			launcher = new Catapult(730, 518);
 			this.add(launcher);
 			break;
 		case CANNON:
-			launcher = new Cannon(730, 450);
+			launcher = new Cannon(730, 507);
 			this.add(launcher);
 			break;
 		}
