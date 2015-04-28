@@ -47,13 +47,8 @@ public class Campaign extends ImagePanel {
 			break;
 		}
 	
-//		launcher = new Trebuchet(730, 450);
-//		this.add(launcher);
-//		launcher.setAngle(45);
-//		launcher.setPower(30);
-		//this.add(trebuchet.shoot());
-		//Projectile p = new Projectile(500, 500, x_velocity, y_velocity)
-		
+
+	
 		controlGui = new ControlGui();
 		controlGui.setLocation(0,600);
 		controlGui.setVisible(true);
@@ -66,6 +61,7 @@ public class Campaign extends ImagePanel {
 
 		controlGui.angle.setText(launcher.getAngle() + "");
 		controlGui.power.setText(launcher.getPower() + "");
+		controlGui.power.setEditable(false);
 		
 	}
 	

@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 public class Trebuchet extends Launcher{
 
 	public Trebuchet(int x, int y) {
-		super(0, 35, 3, new Rectangle(x, y, 150, 110), new ImageIcon("lib/Trebuchet_Launcher.png"));
+		super(0, 35, 3, new Rectangle(x, y, 150, 110), new ImageIcon("lib/Trebuchet_Launcher.png"), 133, 25);
 	}
 
 	

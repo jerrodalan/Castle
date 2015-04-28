@@ -4,10 +4,12 @@ import game.Game;
 import game.ImagePanel;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import launchers.ThreadTimer;
@@ -50,9 +52,12 @@ public class Projectile extends ImagePanel implements Hittable{
 		time += timeStep;
 		//System.out.println(x + "\t" + y);
 		boolean colide = Game.GAME.detectCollision(this);
-		if (y_pos < 0 || colide){ //or we hit something
-			//setVisible(false);
-			//System.out.println("stop");
+		if (colide){ //or we hit something
+			Container parent = this.getParent();
+			parent.remove(this);
+			parent.repaint();
+		}
+		if ((y_pos > 560 && time > 50) || colide){
 			timer.Stop();
 		}
 		setLocation((int)x_pos, (int)y_pos);
