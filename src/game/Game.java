@@ -19,8 +19,8 @@ public class Game extends JFrame {
 	
 	private ArrayList<Hittable> hittables;
 	public Campaign campaign; // made public for testing, if this stays in submitted project.... sorry
+	public Quiz quiz;
 	private Menu menu;
-	private ControlGui controlGui;
 	private EnumLauncher current = EnumLauncher.CATAPULT;
 	
 	public Game(){		
@@ -44,6 +44,10 @@ public class Game extends JFrame {
 		controlGui.setVisible(true);
 		add(controlGui, BorderLayout.SOUTH);*/
 		//controls = new ControlGui();
+		
+		quiz = new Quiz();
+		quiz.setVisible(false);
+		
 		menu = new Menu();
 		contentPane.add(menu, BorderLayout.CENTER);
 		//this.add(controls, BorderLayout.SOUTH);
@@ -55,6 +59,12 @@ public class Game extends JFrame {
 		menu.setVisible(false);
 		contentPane.add(campaign, BorderLayout.CENTER);
 		campaign.setVisible(true);
+	}
+	
+	public void showQuiz(){
+		menu.setVisible(false);
+		contentPane.add(quiz, BorderLayout.CENTER);
+		quiz.setVisible(true);
 	}
 
 	public boolean detectCollision(Hittable p){
@@ -80,18 +90,24 @@ public class Game extends JFrame {
 	
 	private void win(){
 		repaint();
-		if (JOptionPane.showConfirmDialog(this, "You Won!\nAdvance to the next level?", "Victory", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
-			System.exit(0);
-		}
 		switch(current){
 		case CATAPULT:
 			current = EnumLauncher.TREBUCHET;
+			if (JOptionPane.showConfirmDialog(this, "You Defeated the Castle!\nAdvance to the next level?", "Victory", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.NO_OPTION){
+				System.exit(0);
+			}
 			break;
 		case CANNON:
 			current = EnumLauncher.CATAPULT;
+			if (JOptionPane.showConfirmDialog(this, "You Have Achieved Victory!\nPlay Again?", "Victory", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.NO_OPTION){
+				System.exit(0);
+			}
 			break;
 		case TREBUCHET:
 			current = EnumLauncher.CANNON;
+			if (JOptionPane.showConfirmDialog(this, "You Defeated the Castle!\nAdvance to the next level?", "Victory", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.NO_OPTION){
+				System.exit(0);
+			}
 			break;
 		}
 		hittables = new ArrayList<Hittable>();

@@ -61,8 +61,8 @@ public class Campaign extends ImagePanel {
 		
 	}
 	
-	public void drawLine(){
-		
+	public void refresh(){
+		repaint();
 	}
 	
 	public Launcher getLauncher(){
@@ -76,5 +76,11 @@ public class Campaign extends ImagePanel {
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		try {
+			g.setColor(Color.BLACK);
+			for (int i = -1; i < 2; i++){
+				g.drawLine(launcher.getX()+launcher.getXOffset(), launcher.getY()+launcher.getYOffset()+i, launcher.getX()+launcher.getXOffset()-(int)(100*Math.cos(Math.toRadians(launcher.getAngle()))), i+launcher.getY()+launcher.getYOffset()-(int)(100*Math.sin(Math.toRadians(launcher.getAngle()))));
+			}
+		} catch (NullPointerException e) {}
 	}
 }

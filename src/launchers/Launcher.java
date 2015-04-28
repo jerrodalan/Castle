@@ -44,8 +44,8 @@ public abstract class Launcher extends JPanel implements Hittable{
 		try {
 			this.getParent().add(rock);
 		} catch (NullPointerException e){
-			System.err.println("The launcher is not added to a panel");
-			e.printStackTrace();
+			//System.err.println("The launcher is not added to a panel");
+			//e.printStackTrace();
 		}
 		return rock;
 	}
@@ -121,4 +121,14 @@ public abstract class Launcher extends JPanel implements Hittable{
 	public final Rectangle getHitBox(){
 		return new Rectangle(location);
 	}
+
+	public int getXOffset() {
+		return xOffset;
+	}
+
+	public int getYOffset() {
+		return yOffset;
+	}
+	
+	
 }

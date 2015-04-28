@@ -16,6 +16,7 @@ public class CollisionTest {
 	@Before
 	public void setUp() {
 		Game.GAME = new Game();
+		Game.GAME.createPanels();
 	}
 	
 	@Test

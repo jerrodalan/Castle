@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Menu extends ImagePanel {
@@ -41,7 +42,7 @@ public class Menu extends ImagePanel {
 		button.setBounds(x, y, sizeX, sizeY);
 		button.setOpaque(false);
 		button.setContentAreaFilled(false);
-		//button.setBorderPainted(false);
+		button.setBorderPainted(false);
 		return button;
 	}
 	
@@ -52,14 +53,13 @@ public class Menu extends ImagePanel {
 	private class ButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			if (e.getSource() == campaignButton){
-				hideMenu();
 				Game.GAME.showCampaign();
 			}
 			else if (e.getSource() == challengeButton){
-				hideMenu();
+				Game.GAME.showQuiz();
 			}
 			else if(e.getSource() == multiplayerButton){
-				hideMenu();
+				JOptionPane.showConfirmDialog(Game.GAME, "This feature is not currently available.", "Cannot Process", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE);
 			}
 		}
 	}

@@ -32,12 +32,13 @@ public class ControlGui extends JPanel {
 		angle = new JTextField(10);
 		angle.addFocusListener(new FocusAdapter(){
 			public void focusLost(FocusEvent e){
+				//if(angle.getText().equals("win"))
+				//	Game.GAME.campaign.getLauncher().shootToWin();
 				try {
-					if(angle.getText().equals("win"))
-						//Game.GAME.campaign.getLauncher().shootToWin();
 					Game.GAME.campaign.getLauncher().setAngle(Integer.parseInt(angle.getText()));
 				} catch (NumberFormatException ex) {}
 				angle.setText(Game.GAME.campaign.getLauncher().getAngle() + "");
+				Game.GAME.campaign.refresh();
 			}
 			public void focusGained(FocusEvent e){
 				angle.setSelectionStart(0);
@@ -62,6 +63,7 @@ public class ControlGui extends JPanel {
 					Game.GAME.campaign.getLauncher().setPower(Integer.parseInt(power.getText()));
 				} catch (NumberFormatException ex){}
 				power.setText(Game.GAME.campaign.getLauncher().getPower() + "");
+				Game.GAME.campaign.refresh();
 			}
 			public void focusGained(FocusEvent e){
 				power.setSelectionStart(0);
@@ -82,7 +84,7 @@ public class ControlGui extends JPanel {
 		setSize(900, 200);
 		add(anglePanel);
 		add(powerPanel);
-		add(viewButton);
+		//add(viewButton);
 		add(shootButton);
 		ButtonListener buttons = new ButtonListener();
 		shootButton.addActionListener(buttons);
@@ -94,7 +96,7 @@ public class ControlGui extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == viewButton){
 				System.out.println("Angle: " + angle.getText() + " Power: " + power.getText() + "---Still needs to draw shoot line");
-				Game.GAME.campaign.drawLine();
+				Game.GAME.campaign.refresh();
 			}
 			else if (e.getSource() == shootButton)
 				Game.GAME.campaign.getLauncher().shoot();
