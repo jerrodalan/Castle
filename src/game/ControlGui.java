@@ -37,6 +37,10 @@ public class ControlGui extends JPanel {
 				} catch (NumberFormatException ex) {}
 				angle.setText(Game.GAME.campaign.getLauncher().getAngle() + "");
 			}
+			public void focusGained(FocusEvent e){
+				angle.setSelectionStart(0);
+				angle.setSelectionEnd(angle.getText().length());
+			}
 		});
 		angle.addKeyListener(new KeyAdapter(){
 			public void keyPressed(KeyEvent e){
@@ -56,6 +60,10 @@ public class ControlGui extends JPanel {
 					Game.GAME.campaign.getLauncher().setPower(Integer.parseInt(power.getText()));
 				} catch (NumberFormatException ex){}
 				power.setText(Game.GAME.campaign.getLauncher().getPower() + "");
+			}
+			public void focusGained(FocusEvent e){
+				power.setSelectionStart(0);
+				power.setSelectionEnd(power.getText().length());
 			}
 		});
 		power.addKeyListener(new KeyAdapter(){
