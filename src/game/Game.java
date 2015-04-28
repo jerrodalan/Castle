@@ -79,6 +79,10 @@ public class Game extends JFrame {
 	}
 	
 	private void win(){
+		repaint();
+		if (JOptionPane.showConfirmDialog(this, "You Won!\nAdvance to the next level?", "Victory", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+			System.exit(0);
+		}
 		switch(current){
 		case CATAPULT:
 			current = EnumLauncher.TREBUCHET;
@@ -95,15 +99,12 @@ public class Game extends JFrame {
 		campaign = new Campaign(current);
 		contentPane.add(campaign, BorderLayout.CENTER);
 		repaint();
-		if (JOptionPane.showConfirmDialog(this, "You Won!\nAdvance to the next level?", "Victory", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
-			System.exit(0);
-		}
-		repaint();
-//		ThreadTimer repainTimer = new ThreadTimer(200, new Runnable(){
-//			public void run(){
-//				repaint();
-//			}
-//		}, 1);
+		this.setState(ICONIFIED);
+		ThreadTimer repainTimer = new ThreadTimer(1, new Runnable(){
+			public void run(){
+				setState(JFrame.NORMAL);
+			}
+		}, 1);
 	}
 	
 	
