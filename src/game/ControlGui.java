@@ -92,6 +92,7 @@ public class ControlGui extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == viewButton){
 				System.out.println("Angle: " + angle.getText() + " Power: " + power.getText() + "---Still needs to draw shoot line");
+				Game.GAME.campaign.drawLine();
 			}
 			else if (e.getSource() == shootButton)
 				Game.GAME.campaign.getLauncher().shoot();

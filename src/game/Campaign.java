@@ -21,6 +21,7 @@ public class Campaign extends ImagePanel {
 	private Castle castle;
 	private Launcher launcher;
 	private ControlGui controlGui;
+	//private Line line;
 	
 	public Campaign(EnumLauncher selection){
 		super("lib/hills.png");
@@ -57,6 +58,10 @@ public class Campaign extends ImagePanel {
 		controlGui.angle.setText(launcher.getAngle() + "");
 		controlGui.power.setText(launcher.getPower() + "");
 		controlGui.power.setEditable(false);
+		
+	}
+	
+	public void drawLine(){
 		
 	}
 	
