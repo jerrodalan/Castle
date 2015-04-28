@@ -3,6 +3,7 @@ import hittables.Hittable;
 import hittables.Projectile;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -83,9 +84,14 @@ public class Game extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		GAME = new Game();
-		GAME.createPanels();
-		GAME.setVisible(true);
+		EventQueue.invokeLater(new Runnable(){
+			@Override
+			public void run() {
+				GAME = new Game();
+				GAME.createPanels();
+				GAME.setVisible(true);
+			}			
+		});
 	}
 	
 	private void win(){

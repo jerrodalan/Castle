@@ -12,11 +12,12 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 public class Blocks implements Hittable{
 	
 	private int x, y, height, width;
-	private Image image;
+	private ImageIcon image;
 	
 	private boolean isHit = false;
 	
@@ -25,13 +26,13 @@ public class Blocks implements Hittable{
 		this.y = y;
 		this.height = height;
 		this.width = width;
-		image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/cracks.png"));
+		image = new ImageIcon(Blocks.class.getResource("/cracks.png"));
 		Game.GAME.addHitObject(this);
 	}
 
 	public void draw(Graphics g){
 		if(isHit){
-			g.drawImage(image, x, y, null);
+			g.drawImage(image.getImage(), x, y, null);
 		}
 	}
 

@@ -24,7 +24,7 @@ public class Campaign extends ImagePanel {
 	//private Line line;
 	
 	public Campaign(EnumLauncher selection){
-		super("/hills.png");
+		super("/hills.PNG");
 		setLayout(null);
 		
 		switch(selection){

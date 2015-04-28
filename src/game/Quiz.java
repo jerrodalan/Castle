@@ -17,7 +17,7 @@ public class Quiz extends ImagePanel{
 	JLabel scoreLbl;
 	
 	public Quiz() {
-		super("/hills.png");
+		super("/hills.PNG");
 		setLayout(new GridLayout(3,3));
 		
 		createQuestions();

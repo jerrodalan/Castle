@@ -20,8 +20,6 @@ public abstract class Launcher extends ImagePanel implements Hittable{
 	private boolean isHit = false;
 	private Projectile rock;
 	private int xOffset, yOffset;
-	
-	protected ImageIcon picture;
 
 	public Launcher(int lowpower, int highpower, int health, Rectangle r, String picture, int xOff, int yOff) {
 		super(picture);
@@ -59,8 +57,7 @@ public abstract class Launcher extends ImagePanel implements Hittable{
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.drawImage(picture.getImage(), 0, 0, picture.getIconWidth(), picture.getIconHeight(), null);
-//		if(rock != null)
+//		if(rock != null){
 //			rock.draw(g);
 	}
 	
