@@ -6,7 +6,10 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import launchers.ThreadTimer;
 
 
 public class Game extends JFrame {
@@ -18,6 +21,7 @@ public class Game extends JFrame {
 	public Campaign campaign; // made public for testing, if this stays in submitted project.... sorry
 	private Menu menu;
 	private ControlGui controlGui;
+	private EnumLauncher current = EnumLauncher.CATAPULT;
 	
 	public Game(){		
 		hittables = new ArrayList<Hittable>();
@@ -33,7 +37,7 @@ public class Game extends JFrame {
 		this.setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout());
 		
-		campaign = new Campaign(EnumLauncher.TREBUCHET);
+		campaign = new Campaign(current);
 		campaign.setVisible(false);
 		/*controlGui = new ControlGui();
 		//controlGui.setLocation(0,600);
@@ -75,7 +79,31 @@ public class Game extends JFrame {
 	}
 	
 	private void win(){
-		System.out.println("YOU WIN!!!");
+		switch(current){
+		case CATAPULT:
+			current = EnumLauncher.TREBUCHET;
+			break;
+		case CANNON:
+			current = EnumLauncher.CATAPULT;
+			break;
+		case TREBUCHET:
+			current = EnumLauncher.CANNON;
+			break;
+		}
+		hittables = new ArrayList<Hittable>();
+		contentPane.remove(campaign);
+		campaign = new Campaign(current);
+		contentPane.add(campaign, BorderLayout.CENTER);
+		repaint();
+		if (JOptionPane.showConfirmDialog(this, "You Won!\nAdvance to the next level?", "Victory", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION){
+			System.exit(0);
+		}
+		repaint();
+//		ThreadTimer repainTimer = new ThreadTimer(200, new Runnable(){
+//			public void run(){
+//				repaint();
+//			}
+//		}, 1);
 	}
 	
 	

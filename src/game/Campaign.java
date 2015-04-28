@@ -28,25 +28,20 @@ public class Campaign extends ImagePanel {
 		
 		switch(selection){
 		case TREBUCHET: 
-			launcher = new Trebuchet(730, 450);
+			launcher = new Trebuchet(730, 490);
 			this.add(launcher);
-			launcher.setAngle(45);
-			launcher.setPower(30);
 			break;
 		case CATAPULT:
 			launcher = new Catapult(730, 450);
 			this.add(launcher);
-			launcher.setAngle(45);
-			launcher.setPower(30);
 			break;
 		case CANNON:
 			launcher = new Cannon(730, 450);
 			this.add(launcher);
-			launcher.setAngle(45);
-			launcher.setPower(30);
 			break;
 		}
-	
+		launcher.setPower(300);
+		launcher.setAngle(20);
 
 	
 		controlGui = new ControlGui();
