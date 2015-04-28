@@ -1,6 +1,8 @@
 package game;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,16 +13,17 @@ import javax.swing.JPanel;
 
 public class ImagePanel extends JPanel{
 	
-	private BufferedImage image;
+	private Image image;
 	
 	public ImagePanel(String imageFile){
 		this.setOpaque(false);
-		try {
+		image = Toolkit.getDefaultToolkit().getImage(getClass().getResource(imageFile));
+		/*try {
 			image = ImageIO.read(new File(imageFile));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	@Override

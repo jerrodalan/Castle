@@ -20,7 +20,7 @@ public class Menu extends ImagePanel {
 	
 	
 	public Menu(){
-		super("lib/MainMenu2.png");
+		super("/MainMenu2.png");
 		setLayout(null);
 		//SplashScreen splash = new SplashScreen();
 		//add(imagePanel);

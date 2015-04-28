@@ -1,4 +1,5 @@
 package launchers;
+import game.ImagePanel;
 import hittables.Hittable;
 import hittables.Projectile;
 
@@ -10,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
-public abstract class Launcher extends JPanel implements Hittable{
+public abstract class Launcher extends ImagePanel implements Hittable{
 	
 	private int angle, power;
 	private int lowpower, highpower;
@@ -22,8 +23,8 @@ public abstract class Launcher extends JPanel implements Hittable{
 	
 	protected ImageIcon picture;
 
-	public Launcher(int lowpower, int highpower, int health, Rectangle r, ImageIcon picture, int xOff, int yOff) {
-		super();
+	public Launcher(int lowpower, int highpower, int health, Rectangle r, String picture, int xOff, int yOff) {
+		super(picture);
 		this.power = lowpower;
 		this.angle = 0;
 		this.lowpower = lowpower;
@@ -32,9 +33,8 @@ public abstract class Launcher extends JPanel implements Hittable{
 		this.location = r;
 		xOffset = xOff;
 		yOffset = yOff;
-		this.picture = picture;
 		super.setBounds(r);
-		this.setOpaque(false);
+		super.setOpaque(false);
 	}
 
 	public Projectile shoot(){

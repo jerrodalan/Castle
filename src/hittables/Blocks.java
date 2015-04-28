@@ -4,7 +4,9 @@ import game.Game;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +16,7 @@ import javax.imageio.ImageIO;
 public class Blocks implements Hittable{
 	
 	private int x, y, height, width;
-	private BufferedImage image;
+	private Image image;
 	
 	private boolean isHit = false;
 	
@@ -23,12 +25,7 @@ public class Blocks implements Hittable{
 		this.y = y;
 		this.height = height;
 		this.width = width;
-		try {
-			image = ImageIO.read(new File("lib/cracks.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/cracks.png"));
 		Game.GAME.addHitObject(this);
 	}
 

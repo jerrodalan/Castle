@@ -13,7 +13,7 @@ public class Castle extends ImagePanel {
 	private ArrayList<Blocks> structure;
 	
 	public Castle(){
-		super("lib/castle_cross_section.png");
+		super("/castle_cross_section.png");
 		this.setSize(365, 708);
 		createBlocks();
 	}

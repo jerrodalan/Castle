@@ -27,7 +27,7 @@ public class Projectile extends ImagePanel implements Hittable{
 	public ThreadTimer timer;
 	
 	public Projectile(double x, double y, double x_velocity, double y_velocity){
-		super("lib/Projectile.png");
+		super("/Projectile.png");
 		this.x_pos = x;
 		this.y_pos = y;
 		setBounds((int)x, (int)y, 80, 80);
